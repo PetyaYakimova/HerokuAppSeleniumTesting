@@ -19,5 +19,15 @@ namespace HerokuAppSeleniumTesting.Pages
 			this.driver = driver;
 			this.wait = wait;
 		}
+
+		public void OpenHomePage()
+		{
+			driver.Navigate().GoToUrl(settings.DomainSettings.Domain);
+		}
+
+		public void OpenPage(string pageName)
+		{
+			driver.Navigate().GoToUrl(settings.DomainSettings.Domain + pageName);
+		}
 	}
 }
