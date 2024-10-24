@@ -12,5 +12,11 @@ namespace HerokuAppSeleniumTesting.StepDefinitions.Navigations
 		{
 			this.basePage = basePage;
 		}
+
+		[StepDefinition(@"I open the (.*) page")]
+		public void IOpenPage(string pageName)
+		{
+			this.basePage.OpenPage(pageName);
+		}
 	}
 }
