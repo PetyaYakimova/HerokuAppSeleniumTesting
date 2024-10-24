@@ -33,4 +33,10 @@
     <Folder Include="Features\Login\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="appsettings.Debug.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
