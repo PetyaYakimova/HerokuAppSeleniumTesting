@@ -26,7 +26,7 @@ namespace HerokuAppSeleniumTesting.Setup
 		{
 			ChromeOptions options = new ChromeOptions();
 
-			options.AddArgument("--headless");
+			//options.AddArgument("--headless");
 			options.AddArgument("--enable-automation");
 			options.AddArgument("--start-maximized");
 			options.PageLoadStrategy = PageLoadStrategy.Normal;
