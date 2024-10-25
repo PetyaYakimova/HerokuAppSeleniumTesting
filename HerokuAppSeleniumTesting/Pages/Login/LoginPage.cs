@@ -21,5 +21,20 @@ namespace HerokuAppSeleniumTesting.Pages.Login
 
 		public IWebElement ErrorMessage => driver.FindElement(ErrorMessageBy);
 		public By ErrorMessageBy = By.Id("flash");
+
+		public void EnterUsername(string username)
+		{
+			UsernameInputField.SendKeys(username);
+		}
+
+		public void EnterPassword(string password)
+		{
+			PasswordInputField.SendKeys(password);
+		}
+
+		public void ClickLoginButton()
+		{
+			LoginButton.Click();
+		}
 	}
 }
