@@ -14,15 +14,21 @@ namespace HerokuAppSeleniumTesting.StepDefinitions.Login
 		}
 
 		[StepDefinition(@"I enter (.*) in the username field")]
-		public void IEnterValueInTheUsernameField(string value)
+		public void EnterValueInTheUsernameField(string value)
 		{
 			loginPage.EnterUsername(value);
 		}
 
 		[StepDefinition(@"I enter (.*) in the password field")]
-		public void IEnterValueInThePasswordField(string value)
+		public void EnterValueInThePasswordField(string value)
 		{
 			loginPage.EnterPassword(value);
+		}
+
+		[StepDefinition(@"I click the Login button")]
+		public void ClickTheLoginButton()
+		{
+			loginPage.ClickLoginButton();
 		}
 	}
 }
