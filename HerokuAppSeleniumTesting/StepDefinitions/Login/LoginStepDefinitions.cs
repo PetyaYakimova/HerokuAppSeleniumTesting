@@ -30,5 +30,12 @@ namespace HerokuAppSeleniumTesting.StepDefinitions.Login
 		{
 			loginPage.ClickLoginButton();
 		}
+
+		[Then(@"assert that I see the logged in message")]
+		public void AssertThatISeeTheLoggedInMessage()
+		{
+			Assert.IsTrue(loginPage.FlashMessage.Displayed);
+			Assert.That(loginPage.FlashMessage.Text.Contains(loginPage.LooggedInSuccessfullMessage));
+		}
 	}
 }
