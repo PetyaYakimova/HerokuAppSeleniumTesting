@@ -6,7 +6,10 @@ namespace HerokuAppSeleniumTesting.Pages.Login
 {
 	public class LoginPage : BasePage
 	{
-		public LoginPage(AppSettings settings, IWebDriver driver, WebDriverWait wait) : base(settings, driver, wait)
+		public string LooggedInSuccessfullMessage = "You logged into a secure area!";
+
+		public LoginPage(AppSettings settings, IWebDriver driver, WebDriverWait wait) 
+			: base(settings, driver, wait)
 		{
 		}
 
@@ -19,8 +22,8 @@ namespace HerokuAppSeleniumTesting.Pages.Login
 		public IWebElement LoginButton => driver.FindElement(LoginButtonBy);
 		public By LoginButtonBy = By.XPath("//form[@id='login']//button[@type='submit']");
 
-		public IWebElement ErrorMessage => driver.FindElement(ErrorMessageBy);
-		public By ErrorMessageBy = By.Id("flash");
+		public IWebElement FlashMessage => driver.FindElement(FlashMessageBy);
+		public By FlashMessageBy = By.Id("flash");
 
 		public void EnterUsername(string username)
 		{
