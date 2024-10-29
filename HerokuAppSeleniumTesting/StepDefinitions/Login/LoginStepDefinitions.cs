@@ -37,5 +37,11 @@ namespace HerokuAppSeleniumTesting.StepDefinitions.Login
 			Assert.IsTrue(loginPage.FlashMessage.Displayed);
 			Assert.That(loginPage.FlashMessage.Text.Contains(loginPage.LooggedInSuccessfullMessage));
 		}
+
+		[Then(@"assert that I see the logout button")]
+		public void AsserrtThatISeeTheLogoutButton()
+		{
+			Assert.IsTrue(loginPage.LogoutButton.Displayed);
+		}
 	}
 }
