@@ -25,6 +25,9 @@ namespace HerokuAppSeleniumTesting.Pages.Login
 		public IWebElement FlashMessage => driver.FindElement(FlashMessageBy);
 		public By FlashMessageBy = By.Id("flash");
 
+		public IWebElement LogoutButton => driver.FindElement(LogoutButtonBy);
+		public By LogoutButtonBy = By.XPath("//a[contains(@href, 'logout')]");
+
 		public void EnterUsername(string username)
 		{
 			UsernameInputField.SendKeys(username);
