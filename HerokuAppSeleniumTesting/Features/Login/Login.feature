@@ -8,3 +8,4 @@ Scenario: Admin user should be able to log in
 	And I enter SuperSecretPassword! in the password field
 	And I click the Login button
 	Then assert that I see the logged in message
+	And assert that I see the logout button
