@@ -43,5 +43,13 @@ namespace HerokuAppSeleniumTesting.StepDefinitions.Login
 		{
 			Assert.IsTrue(loginPage.LogoutButton.Displayed);
 		}
+
+		[Then(@"assert that I see the invalid (.*) message")]
+		public void AssertThatISeeTheUnsuccessfulLoginMessage(string invalidCredential)
+		{
+			Assert.IsTrue(loginPage.FlashMessage.Displayed);
+			Assert.That(loginPage.FlashMessage.Text.Contains(invalidCredential));
+			Assert.That(loginPage.FlashMessage.Text.Contains("invalid"));
+		}
 	}
 }
