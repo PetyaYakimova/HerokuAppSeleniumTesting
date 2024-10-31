@@ -31,6 +31,7 @@
 
   <ItemGroup>
     <Folder Include="Features\Login\" />
+    <Folder Include="Features\AddRemoveElements\" />
   </ItemGroup>
 
   <ItemGroup>
