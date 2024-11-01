@@ -14,9 +14,17 @@ namespace HerokuAppSeleniumTesting.Pages.AddRemoveElements
 		public IWebElement AddElementButton => driver.FindElement(AddElementButtonBy);
 		public By AddElementButtonBy = By.XPath("//button[@onclick='addElement()']");
 
+		public IWebElement DeleteElementButton => driver.FindElement(DeleteElementButtonBy);
+		public By DeleteElementButtonBy = By.XPath("//button[@onclick='deleteElement()']");
+
 		public void ClickAddElementButton()
 		{
 			AddElementButton.Click();
+		}
+
+		public int GetNumberOfDeleteElementButtons()
+		{
+			return driver.FindElements(DeleteElementButtonBy).Count();
 		}
 	}
 }
