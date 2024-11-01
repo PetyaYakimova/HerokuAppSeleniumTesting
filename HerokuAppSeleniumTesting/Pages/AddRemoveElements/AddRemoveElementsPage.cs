@@ -26,5 +26,10 @@ namespace HerokuAppSeleniumTesting.Pages.AddRemoveElements
 		{
 			return driver.FindElements(DeleteElementButtonBy).Count();
 		}
+
+		public void ClickDeleteElementButton()
+		{
+			DeleteElementButton.Click();
+		}
 	}
 }
