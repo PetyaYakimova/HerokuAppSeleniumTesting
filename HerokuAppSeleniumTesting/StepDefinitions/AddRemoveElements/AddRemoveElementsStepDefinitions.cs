@@ -21,5 +21,13 @@ namespace HerokuAppSeleniumTesting.StepDefinitions.AddRemoveElements
 				addRemoveElementsPage.ClickAddElementButton();
 			}
 		}
+
+		[Then(@"assert that I see (.*) Delete element buttons")]
+		public void AssertThatISeeNumberOfDeleteElementButtons(int expectedNumberOfButtons)
+		{
+			int actualNumberOfButtons = addRemoveElementsPage.GetNumberOfDeleteElementButtons();
+
+			Assert.AreEqual(expectedNumberOfButtons, actualNumberOfButtons);
+		}
 	}
 }
