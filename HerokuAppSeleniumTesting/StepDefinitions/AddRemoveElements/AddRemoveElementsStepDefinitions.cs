@@ -22,6 +22,15 @@ namespace HerokuAppSeleniumTesting.StepDefinitions.AddRemoveElements
 			}
 		}
 
+		[StepDefinition(@"I click the Delete element button (.*) times")]
+		public void ClickTheDeleteElementButtonMultipleTimes(int numberOfTimes)
+		{
+			for (int i = 0; i < numberOfTimes; i++)
+			{
+				addRemoveElementsPage.ClickDeleteElementButton();
+			}
+		}
+
 		[Then(@"assert that I see (.*) Delete element buttons")]
 		public void AssertThatISeeNumberOfDeleteElementButtons(int expectedNumberOfButtons)
 		{
