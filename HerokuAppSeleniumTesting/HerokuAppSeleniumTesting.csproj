@@ -32,6 +32,7 @@
   <ItemGroup>
     <Folder Include="Features\Login\" />
     <Folder Include="Features\AddRemoveElements\" />
+    <Folder Include="Features\ChallengingDOM\" />
   </ItemGroup>
 
   <ItemGroup>
