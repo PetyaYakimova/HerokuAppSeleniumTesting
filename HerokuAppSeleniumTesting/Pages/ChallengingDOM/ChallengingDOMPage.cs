@@ -22,5 +22,10 @@ namespace HerokuAppSeleniumTesting.Pages.ChallengingDOM
 
 		public IWebElement CanvasResultText => driver.FindElement(CanvasResultTextBy);
 		public By CanvasResultTextBy = By.Id("canvas");
+
+		public string GetCanvasAnswerText()
+		{
+			return CanvasResultText.Text;
+		}
 	}
 }
