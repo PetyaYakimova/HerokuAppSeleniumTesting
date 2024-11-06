@@ -14,10 +14,26 @@ namespace HerokuAppSeleniumTesting.StepDefinitions.ChallengingDOM
 			this.challengindDOMPage = challengindDOMPage;
 		}
 
-		[StepDefinition(@"I get the canvas answer text")]
-		public void IGetTheCanvasAnswerText()
+		[StepDefinition(@"I get the canvas image")]
+		public void IGetTheCanvasImage()
 		{
-			Variables.canvasAnswerText = challengindDOMPage.GetCanvasAnswerText();
+			challengindDOMPage.GetCanvasImage(GlobalConstants.ImageBeforeFilePath);
+		}
+
+		[StepDefinition(@"I click the first button on the challending DOM page")]
+		public void IClickTheFirstButtonOnTheChallengingDOMpage()
+		{
+			challengindDOMPage.ClickFirstButton();
+		}
+
+		[Then(@"assert that the canvas image has changed")]
+		public void AssertThatTheCanvasImageHasChanged()
+		{
+			challengindDOMPage.GetCanvasImage(GlobalConstants.ImageAfterFilePath);
+			Assert.IsFalse(challengindDOMPage.AreTwoImagesTheSame(GlobalConstants.ImageBeforeFilePath, GlobalConstants.ImageAfterFilePath));
+
+			//Save the new image as the before image
+			challengindDOMPage.GetCanvasImage(GlobalConstants.ImageBeforeFilePath);
 		}
 	}
 }
