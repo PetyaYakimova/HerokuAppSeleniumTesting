@@ -2,6 +2,5 @@
 {
 	public static class Variables
 	{
-		public static string? canvasAnswerText;
 	}
 }
