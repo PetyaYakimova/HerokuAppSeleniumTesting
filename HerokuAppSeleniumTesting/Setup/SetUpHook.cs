@@ -40,8 +40,6 @@ namespace HerokuAppSeleniumTesting.Setup
 		[AfterScenario]
 		public void TearDown(IObjectContainer objectContainer)
 		{
-			Variables.canvasAnswerText = null;
-
 			IWebDriver driver = objectContainer.Resolve<IWebDriver>();
 			driver.Quit();
 		}
