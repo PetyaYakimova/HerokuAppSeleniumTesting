@@ -26,6 +26,12 @@ namespace HerokuAppSeleniumTesting.StepDefinitions.ChallengingDOM
 			challengindDOMPage.ClickFirstButton();
 		}
 
+		[StepDefinition(@"I click the second button on the challending DOM page")]
+		public void IClickTheSecondButtonOnTheChallengingDOMpage()
+		{
+			challengindDOMPage.ClickSecondButton();
+		}
+
 		[Then(@"assert that the canvas image has changed")]
 		public void AssertThatTheCanvasImageHasChanged()
 		{
