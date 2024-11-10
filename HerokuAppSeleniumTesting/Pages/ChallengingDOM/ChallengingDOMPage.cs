@@ -34,6 +34,11 @@ namespace HerokuAppSeleniumTesting.Pages.ChallengingDOM
 			SecondButton.Click();
 		}
 
+		public void ClickThirdButton()
+		{
+			ThirdButton.Click();
+		}
+
 		public void GetCanvasImage(string filePath)
 		{
 			var canvas = CanvasResultText;
