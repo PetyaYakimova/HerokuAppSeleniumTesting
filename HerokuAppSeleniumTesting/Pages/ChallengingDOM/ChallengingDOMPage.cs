@@ -21,6 +21,12 @@ namespace HerokuAppSeleniumTesting.Pages.ChallengingDOM
 		public IWebElement ThirdButton => driver.FindElement(ThirdButtonBy);
 		public By ThirdButtonBy = By.XPath("//a[@class='button success']");
 
+		public IWebElement Table_EditButton => driver.FindElement(Table_EditButtonBy);
+		public By Table_EditButtonBy = By.XPath("//tbody//a");
+
+		public IWebElement Table_DeleteButton => driver.FindElement(Table_DeleteButtonBy);
+		public By Table_DeleteButtonBy = By.XPath("(//tbody//a)[2]");
+
 		public IWebElement CanvasResultText => driver.FindElement(CanvasResultTextBy);
 		public By CanvasResultTextBy = By.Id("canvas");
 
@@ -37,6 +43,16 @@ namespace HerokuAppSeleniumTesting.Pages.ChallengingDOM
 		public void ClickThirdButton()
 		{
 			ThirdButton.Click();
+		}
+
+		public void ClickFirstTableEditButton()
+		{
+			Table_EditButton.Click();
+		}
+
+		public void ClickFirstTableDeleteButton()
+		{
+			Table_DeleteButton.Click();
 		}
 
 		public void GetCanvasImage(string filePath)
