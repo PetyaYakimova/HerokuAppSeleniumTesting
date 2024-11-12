@@ -16,3 +16,4 @@ Scenario: Check that the action buttons change the answer
 Scenario: Check that the edit table button changes the URL
 	Given I open the challenging_dom page
 	When I click the edit button for the first item in the table
+	Then assert that I am on a page with edit action
