@@ -29,5 +29,10 @@ namespace HerokuAppSeleniumTesting.Pages
 		{
 			driver.Navigate().GoToUrl(settings.DomainSettings.Domain + pageName);
 		}
+
+		public string GetCurrentURL()
+		{
+			return driver.Url;
+		}
 	}
 }
