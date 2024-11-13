@@ -44,6 +44,12 @@ namespace HerokuAppSeleniumTesting.StepDefinitions.ChallengingDOM
 			challengindDOMPage.ClickFirstTableEditButton();
 		}
 
+		[StepDefinition(@"I click the delete button for the first item in the table")]
+		public void IClickTheDeleteButtonForTheFirstItemInTheTable()
+		{
+			challengindDOMPage.ClickFirstTableDeleteButton();
+		}
+
 		[Then(@"assert that the canvas image has changed")]
 		public void AssertThatTheCanvasImageHasChanged()
 		{
