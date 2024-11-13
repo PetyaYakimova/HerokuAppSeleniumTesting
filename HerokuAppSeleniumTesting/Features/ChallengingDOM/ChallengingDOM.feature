@@ -17,3 +17,9 @@ Scenario: Check that the edit table button changes the URL
 	Given I open the challenging_dom page
 	When I click the edit button for the first item in the table
 	Then assert that I am on a page with edit action
+
+@positive
+Scenario: Check that the delete table button changes the URL
+	Given I open the challenging_dom page
+	When I click the delete button for the first item in the table
+	Then assert that I am on a page with delete action
