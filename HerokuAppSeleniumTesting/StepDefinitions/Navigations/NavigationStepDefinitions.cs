@@ -16,7 +16,13 @@ namespace HerokuAppSeleniumTesting.StepDefinitions.Navigations
 		[StepDefinition(@"I open the (.*) page")]
 		public void IOpenPage(string pageName)
 		{
-			this.basePage.OpenPage(pageName);
+			basePage.OpenPage(pageName);
+		}
+
+		[Then(@"assert that I am on a page with (.*) action")]
+		public void AssertThatIAmOnAPageWithAction(string action)
+		{
+			Assert.IsTrue(basePage.GetCurrentURL().EndsWith(action));
 		}
 	}
 }
