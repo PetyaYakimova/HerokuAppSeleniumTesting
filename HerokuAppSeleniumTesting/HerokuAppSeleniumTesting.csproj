@@ -38,6 +38,7 @@
     <Folder Include="Features\Login\" />
     <Folder Include="Features\AddRemoveElements\" />
     <Folder Include="Features\ChallengingDOM\" />
+    <Folder Include="Features\Checkboxes\" />
   </ItemGroup>
 
   <ItemGroup>
