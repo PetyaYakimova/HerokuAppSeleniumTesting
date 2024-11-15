@@ -12,9 +12,14 @@ namespace HerokuAppSeleniumTesting.Pages.Checkboxes
 		}
 
 		public IWebElement FirstCheckbox => driver.FindElement(FirstCheckboxBy);
-		public By FirstCheckboxBy = By.XPath("//form[@id='checkboxes//input[1]']");
+		public By FirstCheckboxBy = By.XPath("//form[@id='checkboxes']//input[1]");
 
 		public IWebElement SecondCheckbox => driver.FindElement(SecondCheckboxBy);
-		public By SecondCheckboxBy = By.XPath("//form[@id='checkboxes//input[2]']");
+		public By SecondCheckboxBy = By.XPath("//form[@id='checkboxes']//input[2]");
+
+		public bool IsCheckboxChecked(IWebElement checkbox)
+		{
+			return checkbox.GetAttribute("checked") == "true";
+		}
 	}
 }
