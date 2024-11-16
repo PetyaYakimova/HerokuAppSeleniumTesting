@@ -3,12 +3,11 @@ using TechTalk.SpecFlow;
 
 namespace HerokuAppSeleniumTesting.StepDefinitions.Login
 {
-	[Binding]
-	public class LoginStepDefinitions
+	public class LoginStepDefinitions : BaseStepDefinitions
 	{
 		private readonly LoginPage loginPage;
 
-		public LoginStepDefinitions(LoginPage loginPage)
+		public LoginStepDefinitions(LoginPage loginPage) : base()
 		{
 			this.loginPage = loginPage;
 		}
