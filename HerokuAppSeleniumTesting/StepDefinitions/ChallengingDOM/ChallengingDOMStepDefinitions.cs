@@ -4,12 +4,11 @@ using TechTalk.SpecFlow;
 
 namespace HerokuAppSeleniumTesting.StepDefinitions.ChallengingDOM
 {
-	[Binding]
-	public class ChallengingDOMStepDefinitions
+	public class ChallengingDOMStepDefinitions : BaseStepDefinitions
 	{
 		private readonly ChallengingDOMPage challengindDOMPage;
 
-		public ChallengingDOMStepDefinitions(ChallengingDOMPage challengindDOMPage)
+		public ChallengingDOMStepDefinitions(ChallengingDOMPage challengindDOMPage) : base()
 		{
 			this.challengindDOMPage = challengindDOMPage;
 		}
