@@ -3,12 +3,11 @@ using TechTalk.SpecFlow;
 
 namespace HerokuAppSeleniumTesting.StepDefinitions.Navigations
 {
-	[Binding]
-	public class NavigationStepDefinitions
+	public class NavigationStepDefinitions : BaseStepDefinitions
 	{
 		private readonly BasePage basePage;
 
-		public NavigationStepDefinitions(BasePage basePage)
+		public NavigationStepDefinitions(BasePage basePage) : base()
 		{
 			this.basePage = basePage;
 		}
