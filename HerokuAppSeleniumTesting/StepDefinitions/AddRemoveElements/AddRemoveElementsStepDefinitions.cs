@@ -3,12 +3,11 @@ using TechTalk.SpecFlow;
 
 namespace HerokuAppSeleniumTesting.StepDefinitions.AddRemoveElements
 {
-	[Binding]
-	public class AddRemoveElementsStepDefinitions
+	public class AddRemoveElementsStepDefinitions : BaseStepDefinitions
 	{
 		private readonly AddRemoveElementsPage addRemoveElementsPage;
 
-		public AddRemoveElementsStepDefinitions(AddRemoveElementsPage addRemoveElementsPage)
+		public AddRemoveElementsStepDefinitions(AddRemoveElementsPage addRemoveElementsPage) : base()
 		{
 			this.addRemoveElementsPage = addRemoveElementsPage;
 		}
