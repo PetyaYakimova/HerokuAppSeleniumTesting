@@ -21,5 +21,15 @@ namespace HerokuAppSeleniumTesting.Pages.Checkboxes
 		{
 			return checkbox.GetAttribute("checked") == "true";
 		}
+
+		public void ClickFirstCheckbox()
+		{
+			FirstCheckbox.Click();
+		}
+
+		public void ClickSecondCheckbox()
+		{
+			SecondCheckbox.Click();
+		}
 	}
 }
