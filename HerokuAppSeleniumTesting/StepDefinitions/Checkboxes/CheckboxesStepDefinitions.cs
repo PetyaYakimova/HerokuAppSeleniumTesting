@@ -12,6 +12,18 @@ namespace HerokuAppSeleniumTesting.StepDefinitions.Checkboxes
 			this.checkboxesPage = checkboxesPage;
 		}
 
+		[StepDefinition(@"I click the first checkbox")]
+		public void ClickTheFirstCheckbox()
+		{
+			checkboxesPage.ClickFirstCheckbox();
+		}
+
+		[StepDefinition(@"I click the second checkbox")]
+		public void ClickTheSecondCheckbox()
+		{
+			checkboxesPage.ClickSecondCheckbox();
+		}
+
 		[Then(@"assert that the first checkbox (.*) checked")]
 		public void AssertThatTheFirstCheckboxChecked(string expectedCheckedString)
 		{
