@@ -2,37 +2,36 @@
 using OpenQA.Selenium;
 using HerokuAppSeleniumTesting.Setup;
 
-namespace HerokuAppSeleniumTesting.Pages
+namespace HerokuAppSeleniumTesting.Pages;
+
+public class BasePage
 {
-	public class BasePage
+	protected readonly AppSettings settings;
+	protected readonly IWebDriver driver;
+	protected readonly WebDriverWait wait;
+
+	protected BasePage(
+		AppSettings settings,
+		IWebDriver driver,
+		WebDriverWait wait)
 	{
-		protected readonly AppSettings settings;
-		protected readonly IWebDriver driver;
-		protected readonly WebDriverWait wait;
+		this.settings = settings;
+		this.driver = driver;
+		this.wait = wait;
+	}
 
-		protected BasePage(
-			AppSettings settings,
-			IWebDriver driver,
-			WebDriverWait wait)
-		{
-			this.settings = settings;
-			this.driver = driver;
-			this.wait = wait;
-		}
+	public void OpenHomePage()
+	{
+		driver.Navigate().GoToUrl(settings.DomainSettings.Domain);
+	}
 
-		public void OpenHomePage()
-		{
-			driver.Navigate().GoToUrl(settings.DomainSettings.Domain);
-		}
+	public void OpenPage(string pageName)
+	{
+		driver.Navigate().GoToUrl(settings.DomainSettings.Domain + pageName);
+	}
 
-		public void OpenPage(string pageName)
-		{
-			driver.Navigate().GoToUrl(settings.DomainSettings.Domain + pageName);
-		}
-
-		public string GetCurrentURL()
-		{
-			return driver.Url;
-		}
+	public string GetCurrentURL()
+	{
+		return driver.Url;
 	}
 }

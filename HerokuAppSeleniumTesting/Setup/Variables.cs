@@ -1,6 +1,5 @@
-﻿namespace HerokuAppSeleniumTesting.Setup
+﻿namespace HerokuAppSeleniumTesting.Setup;
+
+public static class Variables
 {
-	public static class Variables
-	{
-	}
 }

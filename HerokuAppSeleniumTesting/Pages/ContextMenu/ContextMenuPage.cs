@@ -2,13 +2,12 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
-namespace HerokuAppSeleniumTesting.Pages.ContextMenu
+namespace HerokuAppSeleniumTesting.Pages.ContextMenu;
+
+public class ContextMenuPage : BasePage
 {
-	public class ContextMenuPage : BasePage
+	public ContextMenuPage(AppSettings settings, IWebDriver driver, WebDriverWait wait)
+		: base(settings, driver, wait)
 	{
-		public ContextMenuPage(AppSettings settings, IWebDriver driver, WebDriverWait wait)
-			: base(settings, driver, wait)
-		{
-		}
 	}
 }

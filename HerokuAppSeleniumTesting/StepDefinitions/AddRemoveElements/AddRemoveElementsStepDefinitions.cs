@@ -1,41 +1,40 @@
 ﻿using HerokuAppSeleniumTesting.Pages.AddRemoveElements;
 using TechTalk.SpecFlow;
 
-namespace HerokuAppSeleniumTesting.StepDefinitions.AddRemoveElements
+namespace HerokuAppSeleniumTesting.StepDefinitions.AddRemoveElements;
+
+public class AddRemoveElementsStepDefinitions : BaseStepDefinitions
 {
-	public class AddRemoveElementsStepDefinitions : BaseStepDefinitions
+	private readonly AddRemoveElementsPage addRemoveElementsPage;
+
+	public AddRemoveElementsStepDefinitions(AddRemoveElementsPage addRemoveElementsPage) : base()
 	{
-		private readonly AddRemoveElementsPage addRemoveElementsPage;
+		this.addRemoveElementsPage = addRemoveElementsPage;
+	}
 
-		public AddRemoveElementsStepDefinitions(AddRemoveElementsPage addRemoveElementsPage) : base()
+	[StepDefinition(@"I click the Add element button (.*) times")]
+	public void ClickTheAddElementButtonMultipleTimes(int numberOfTimes)
+	{
+		for (int i = 0; i < numberOfTimes; i++)
 		{
-			this.addRemoveElementsPage = addRemoveElementsPage;
+			addRemoveElementsPage.ClickAddElementButton();
 		}
+	}
 
-		[StepDefinition(@"I click the Add element button (.*) times")]
-		public void ClickTheAddElementButtonMultipleTimes(int numberOfTimes)
+	[StepDefinition(@"I click the Delete element button (.*) times")]
+	public void ClickTheDeleteElementButtonMultipleTimes(int numberOfTimes)
+	{
+		for (int i = 0; i < numberOfTimes; i++)
 		{
-			for (int i = 0; i < numberOfTimes; i++)
-			{
-				addRemoveElementsPage.ClickAddElementButton();
-			}
+			addRemoveElementsPage.ClickDeleteElementButton();
 		}
+	}
 
-		[StepDefinition(@"I click the Delete element button (.*) times")]
-		public void ClickTheDeleteElementButtonMultipleTimes(int numberOfTimes)
-		{
-			for (int i = 0; i < numberOfTimes; i++)
-			{
-				addRemoveElementsPage.ClickDeleteElementButton();
-			}
-		}
+	[Then(@"assert that I see (.*) Delete element buttons")]
+	public void AssertThatISeeNumberOfDeleteElementButtons(int expectedNumberOfButtons)
+	{
+		int actualNumberOfButtons = addRemoveElementsPage.GetNumberOfDeleteElementButtons();
 
-		[Then(@"assert that I see (.*) Delete element buttons")]
-		public void AssertThatISeeNumberOfDeleteElementButtons(int expectedNumberOfButtons)
-		{
-			int actualNumberOfButtons = addRemoveElementsPage.GetNumberOfDeleteElementButtons();
-
-			Assert.AreEqual(expectedNumberOfButtons, actualNumberOfButtons);
-		}
+		Assert.AreEqual(expectedNumberOfButtons, actualNumberOfButtons);
 	}
 }
