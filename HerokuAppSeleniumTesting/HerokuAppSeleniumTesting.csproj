@@ -39,6 +39,7 @@
     <Folder Include="Features\AddRemoveElements\" />
     <Folder Include="Features\ChallengingDOM\" />
     <Folder Include="Features\Checkboxes\" />
+    <Folder Include="Features\ContextMenu\" />
   </ItemGroup>
 
   <ItemGroup>
