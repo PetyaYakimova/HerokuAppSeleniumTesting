@@ -81,15 +81,4 @@ public class SetUpHook
 				throw new ArgumentException($"Browser {browserName} is not supported.");
 		}
 	}
-
-	private string GetBrowserFromTags(ScenarioContext scenarioContext)
-	{
-		// Look for browser tags in the scenario's tags
-		var browserTag = scenarioContext.ScenarioInfo.Tags
-							.FirstOrDefault(tag => tag.Equals("chrome", StringComparison.OrdinalIgnoreCase) ||
-												   tag.Equals("firefox", StringComparison.OrdinalIgnoreCase));
-
-		// Default to Chrome if no browser tag is found
-		return browserTag ?? "chrome";
-	}
 }
