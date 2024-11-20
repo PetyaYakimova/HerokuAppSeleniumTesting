@@ -30,6 +30,7 @@ public class SetUpHook
 
 		driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(10);
 		driver.Manage().Window.Maximize();
+		driver.Manage().Cookies.DeleteAllCookies();
 
 		this.wait = new WebDriverWait(driver, new TimeSpan(0, 0, 10));
 		objectContainer.RegisterInstanceAs(driver);
