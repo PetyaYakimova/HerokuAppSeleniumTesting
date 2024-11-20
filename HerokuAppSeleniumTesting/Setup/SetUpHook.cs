@@ -25,10 +25,11 @@ public class SetUpHook
 	[BeforeScenario]
 	public void Setup(IObjectContainer objectContainer, ScenarioContext scenarioContext)
 	{
-		//IWebDriver driver = this.GetDriver("chrome");
-		IWebDriver driver = this.GetDriver("firefox");
+		IWebDriver driver = this.GetDriver("chrome");
+		//IWebDriver driver = this.GetDriver("firefox");
 
 		driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(10);
+		driver.Manage().Window.Maximize();
 
 		this.wait = new WebDriverWait(driver, new TimeSpan(0, 0, 10));
 		objectContainer.RegisterInstanceAs(driver);
@@ -61,7 +62,6 @@ public class SetUpHook
 				ChromeOptions options = new ChromeOptions();
 				//options.AddArgument("--headless");
 				options.AddArgument("--enable-automation");
-				options.AddArgument("--start-maximized");
 				options.PageLoadStrategy = PageLoadStrategy.Normal;
 				IWebDriver driver = new ChromeDriver(".", options);
 
@@ -71,7 +71,6 @@ public class SetUpHook
 				FirefoxOptions firefoxOptions = new FirefoxOptions();
 				//firefoxOptions.AddArgument("--headless");
 				firefoxOptions.AddArgument("--enable-automation");
-				firefoxOptions.AddArgument("--start-maximized");
 				firefoxOptions.PageLoadStrategy = PageLoadStrategy.Normal;
 				IWebDriver firefoxDriver = new FirefoxDriver(".", firefoxOptions);
 
