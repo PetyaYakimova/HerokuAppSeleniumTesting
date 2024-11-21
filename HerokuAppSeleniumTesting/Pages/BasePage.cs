@@ -27,6 +27,7 @@ public class BasePage
 
 	public void OpenPage(string pageName)
 	{
+		pageName = pageName.Replace(" ", "_");
 		driver.Navigate().GoToUrl(settings.DomainSettings.Domain + pageName);
 	}
 
