@@ -17,4 +17,11 @@ public class ContextMenuStepDefinitions : BaseStepDefinitions
 	{
 		contextMenuPage.RightClickHotSpotBox();
 	}
+
+	[Then(@"assert that I (.*) see the alert")]
+	public void AssertThatISeeTheAlert(string expectedSee)
+	{
+		bool expectedSeeAsBool = GetBooleanFromString(expectedSee);
+		Assert.That(contextMenuPage.IsAlertDisplayed(), Is.EqualTo(expectedSeeAsBool));
+	}
 }
