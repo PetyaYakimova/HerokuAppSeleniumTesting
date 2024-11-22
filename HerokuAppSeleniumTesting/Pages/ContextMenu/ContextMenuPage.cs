@@ -20,4 +20,17 @@ public class ContextMenuPage : BasePage
 		Actions actions = new Actions(driver);
 		actions.ContextClick(HotSpotBox).Perform();
 	}
+
+	public bool IsAlertDisplayed()
+	{
+		try
+		{
+			driver.SwitchTo().Alert();
+			return true;
+		}
+		catch (NoAlertPresentException)
+		{
+			return false;
+		}
+	}
 }
