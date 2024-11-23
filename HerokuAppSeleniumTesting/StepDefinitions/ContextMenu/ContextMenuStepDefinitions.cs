@@ -18,6 +18,12 @@ public class ContextMenuStepDefinitions : BaseStepDefinitions
 		contextMenuPage.RightClickHotSpotBox();
 	}
 
+	[StepDefinition(@"I left click the hot spot box")]
+	public void LeftClickHotSpotBox()
+	{
+		contextMenuPage.LeftClickHotSpotBox();
+	}
+
 	[Then(@"assert that I (.*) see the alert")]
 	public void AssertThatISeeTheAlert(string expectedSee)
 	{
