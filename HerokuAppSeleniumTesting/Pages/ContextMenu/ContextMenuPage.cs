@@ -21,6 +21,11 @@ public class ContextMenuPage : BasePage
 		actions.ContextClick(HotSpotBox).Perform();
 	}
 
+	public void LeftClickHotSpotBox()
+	{
+		HotSpotBox.Click();
+	}
+
 	public bool IsAlertDisplayed()
 	{
 		try
