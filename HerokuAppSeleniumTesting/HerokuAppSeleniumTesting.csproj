@@ -42,6 +42,7 @@
 		<Folder Include="Features\ChallengingDOM\" />
 		<Folder Include="Features\Checkboxes\" />
 		<Folder Include="Features\ContextMenu\" />
+		<Folder Include="Features\DigestAuthentications\" />
 	</ItemGroup>
 
 	<ItemGroup>
