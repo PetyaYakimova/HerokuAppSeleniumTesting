@@ -1,4 +1,5 @@
 ﻿using HerokuAppSeleniumTesting.Pages.DigestAuthentications;
+using TechTalk.SpecFlow;
 
 namespace HerokuAppSeleniumTesting.StepDefinitions.DigestAuthentication
 {
@@ -9,6 +10,12 @@ namespace HerokuAppSeleniumTesting.StepDefinitions.DigestAuthentication
 		public DigestAuthenticationStepDefinitions(DigestAuthenticationPage digestAuthenticationPage) : base()
 		{
 			this.digestAuthenticationPage = digestAuthenticationPage;
+		}
+
+		[StepDefinition(@"I pass username (.*) and password (.*) for the digest authentication")]
+		public void PassUsernameAndPasswordForTheDigestAuthentication(string username, string password)
+		{
+			this.digestAuthenticationPage.PassUsernameAndPasswordForDigestAuth(username, password);
 		}
 	}
 }
