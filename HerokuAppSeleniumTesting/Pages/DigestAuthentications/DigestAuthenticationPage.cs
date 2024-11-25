@@ -10,5 +10,13 @@ namespace HerokuAppSeleniumTesting.Pages.DigestAuthentications
 			: base(settings, driver, wait)
 		{
 		}
+
+		public void PassUsernameAndPasswordForDigestAuth(string username, string pass)
+		{
+			string url = "https://" + username + ":" + pass + "@the-internet.herokuapp.com/digest_auth";
+			driver.Navigate().GoToUrl(url);
+		}
+
+
 	}
 }
