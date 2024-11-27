@@ -35,4 +35,16 @@ public class BasePage
 	{
 		return driver.Url;
 	}
+
+	public bool DoesElementExistAndIsDisplayed(By locator)
+	{
+		try
+		{
+			return driver.FindElement(locator).Displayed;
+		}
+		catch (NoSuchElementException)
+		{
+			return false;
+		}
+	}
 }
