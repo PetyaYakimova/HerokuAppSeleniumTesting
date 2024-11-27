@@ -18,9 +18,10 @@ public class DigestAuthenticationStepDefinitions : BaseStepDefinitions
 		digestAuthenticationPage.PassUsernameAndPasswordForDigestAuth(username, password);
 	}
 
-	[Then(@"assert that I see the digest authentication page heading")]
-	public void AssertThatISeeTheDigestAuthenticationPageHeading()
+	[Then(@"assert that I (.*) the digest authentication page heading")]
+	public void AssertThatISeeTheDigestAuthenticationPageHeading(string expectedDisplayedElement)
 	{
-		Assert.IsTrue(digestAuthenticationPage.Heading.Displayed);
+		bool expectedDisplayElementBoolean = GetBooleanFromString(expectedDisplayedElement);
+		Assert.That(digestAuthenticationPage.DoesElementExistAndIsDisplayed(digestAuthenticationPage.HeadingBy), Is.EqualTo(expectedDisplayElementBoolean));
 	}
 }
