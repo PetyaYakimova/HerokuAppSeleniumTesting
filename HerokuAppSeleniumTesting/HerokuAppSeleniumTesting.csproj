@@ -43,6 +43,7 @@
 		<Folder Include="Features\Checkboxes\" />
 		<Folder Include="Features\ContextMenu\" />
 		<Folder Include="Features\DigestAuthentications\" />
+		<Folder Include="Features\DragAndDrop\" />
 	</ItemGroup>
 
 	<ItemGroup>
