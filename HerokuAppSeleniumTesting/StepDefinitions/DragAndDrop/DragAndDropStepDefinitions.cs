@@ -17,5 +17,21 @@ namespace HerokuAppSeleniumTesting.StepDefinitions.DragAndDrop
 		{
 			dragAndDropPage.DragAndDropElementToELement(firstElementHeading, secondElementHeading);
 		}
+
+		[Then(@"assert that in the first column there is element (.*)")]
+		public void AssertThatInTheFirstColumnThereIsElement(string expectedElement)
+		{
+			string actualElement = dragAndDropPage.GetTextInFirstColumn();
+
+			Assert.That(actualElement, Is.EqualTo(expectedElement));
+		}
+
+		[Then(@"assert that in the second column there is element (.*)")]
+		public void AssertThatInTheSecondColumnThereIsElement(string expectedElement)
+		{
+			string actualElement = dragAndDropPage.GetTextInSecondColumn();
+
+			Assert.That(actualElement, Is.EqualTo(expectedElement));
+		}
 	}
 }
