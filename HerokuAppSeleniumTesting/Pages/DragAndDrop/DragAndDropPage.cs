@@ -26,5 +26,15 @@ namespace HerokuAppSeleniumTesting.Pages.DragAndDrop
 			Actions actions = new Actions(driver);
 			actions.DragAndDrop(firstElement, secondElement).Build().Perform();
 		}
+
+		public string GetTextInFirstColumn()
+		{
+			return ColumnA.Text;
+		}
+
+		public string GetTextInSecondColumn()
+		{
+			return ColumnB.Text;
+		}
 	}
 }
