@@ -13,3 +13,6 @@ Scenario: Elements can be reordered with drag and drop
 	When I drag and drop element A to element B
 	Then assert that in the first column there is element B
 	And assert that in the second column there is element A
+	When I drag and drop element B to element A
+	Then assert that in the first column there is element A
+	And assert that in the second column there is element B
