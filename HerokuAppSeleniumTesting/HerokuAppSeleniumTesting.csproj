@@ -44,6 +44,7 @@
 		<Folder Include="Features\ContextMenu\" />
 		<Folder Include="Features\DigestAuthentications\" />
 		<Folder Include="Features\DragAndDrop\" />
+		<Folder Include="Features\SortableDataTables\" />
 	</ItemGroup>
 
 	<ItemGroup>
