@@ -10,4 +10,9 @@ public class SortableDataTablesPage : BasePage
 	: base(settings, driver, wait)
 	{
 	}
+
+	public void ClickTableColumnHeaderInFirstTable(string columnName)
+	{
+		driver.FindElement(By.XPath($"//table[@id='table1']//th//span[text()='{columnName}']")).Click();
+	}
 }
