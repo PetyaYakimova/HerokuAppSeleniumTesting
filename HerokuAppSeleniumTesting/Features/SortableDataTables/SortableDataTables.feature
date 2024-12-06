@@ -13,3 +13,7 @@ Scenario: Table can be ordered by each column
 	Then assert that the first table is ordered by First Name in ascending order
 	When I click the First Name column header in the first table
 	Then assert that the first table is ordered by First Name in descending order
+	When I click the Email column header in the first table
+	Then assert that the first table is ordered by Email in ascending order
+	When I click the Email column header in the first table
+	Then assert that the first table is ordered by Email in descending order
