@@ -20,6 +20,9 @@ public class SortableDataTablesPage : BasePage
 	public IWebElement FirstTable_ValueInEmailColumn => driver.FindElement(FirstTable_ValueInEmailColumnBy);
 	public By FirstTable_ValueInEmailColumnBy = By.XPath("//table[@id='table1']//tbody//tr//td[3]");
 
+	public IWebElement FirstTable_ValueInDueColumn => driver.FindElement(FirstTable_ValueInDueColumnBy);
+	public By FirstTable_ValueInDueColumnBy = By.XPath("//table[@id='table1']//tbody//tr//td[4]");
+
 	public void ClickTableColumnHeaderInFirstTable(string columnName)
 	{
 		driver.FindElement(By.XPath($"//table[@id='table1']//th//span[text()='{columnName}']")).Click();
@@ -41,5 +44,10 @@ public class SortableDataTablesPage : BasePage
 				break;
 		}
 		return driver.FindElements(locator).Select(e => e.Text).ToList();
+	}
+
+	public List<double> GetAmountValuesFromDueColumnInFirstTable()
+	{
+		return driver.FindElements(FirstTable_ValueInDueColumnBy).Select(e => double.Parse(e.Text.Replace("$", string.Empty))).ToList();
 	}
 }
