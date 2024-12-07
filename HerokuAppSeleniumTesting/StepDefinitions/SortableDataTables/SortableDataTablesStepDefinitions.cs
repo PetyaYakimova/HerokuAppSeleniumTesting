@@ -22,7 +22,7 @@ public class SortableDataTablesStepDefinitions : BaseStepDefinitions
 	public void AssertThatTheFirstTableIsOrderedByColumnInOrder(string columnName, string order)
 	{
 		List<string> actualValues = sortableDataTablesPage.GetAllValuesFromFirstTableInColumn(columnName);
-	
+
 		if (order.ToLower() == "descending")
 		{
 			actualValues.Reverse();
@@ -31,6 +31,22 @@ public class SortableDataTablesStepDefinitions : BaseStepDefinitions
 		for (int i = 0; i < actualValues.Count - 1; i++)
 		{
 			Assert.That(actualValues[i].CompareTo(actualValues[i + 1]) <= 0);
+		}
+	}
+
+	[Then(@"assert that the first table is ordered numerically by Due column in (.*) order")]
+	public void AssertThatTheFirstTableIsOrderedNumericallyByDueColumnInOrder(string order)
+	{
+		List<double> actualValues = sortableDataTablesPage.GetAmountValuesFromDueColumnInFirstTable();
+
+		if (order.ToLower() == "descending")
+		{
+			actualValues.Reverse();
+		}
+
+		for (int i = 0; i < actualValues.Count - 1; i++)
+		{
+			Assert.That(actualValues[i] <= actualValues[i + 1]);
 		}
 	}
 }
