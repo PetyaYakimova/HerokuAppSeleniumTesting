@@ -21,3 +21,7 @@ Scenario: Table can be ordered by each column
 	Then assert that the first table is ordered numerically by Due column in ascending order
 	When I click the Due column header in the first table
 	Then assert that the first table is ordered numerically by Due column in descending order
+	When I click the Web Site column header in the first table
+	Then assert that the first table is ordered by Web Site in ascending order
+	When I click the Web Site column header in the first table
+	Then assert that the first table is ordered by Web Site in descending order
