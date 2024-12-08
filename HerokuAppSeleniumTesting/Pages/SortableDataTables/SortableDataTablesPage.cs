@@ -23,6 +23,9 @@ public class SortableDataTablesPage : BasePage
 	public IWebElement FirstTable_ValueInDueColumn => driver.FindElement(FirstTable_ValueInDueColumnBy);
 	public By FirstTable_ValueInDueColumnBy = By.XPath("//table[@id='table1']//tbody//tr//td[4]");
 
+	public IWebElement FirstTable_ValueInWebSiteColumn => driver.FindElement(FirstTable_ValueInWebSiteColumnBy);
+	public By FirstTable_ValueInWebSiteColumnBy = By.XPath("//table[@id='table1']//tbody//tr//td[5]");
+
 	public void ClickTableColumnHeaderInFirstTable(string columnName)
 	{
 		driver.FindElement(By.XPath($"//table[@id='table1']//th//span[text()='{columnName}']")).Click();
@@ -41,6 +44,9 @@ public class SortableDataTablesPage : BasePage
 				break;
 			case "Email":
 				locator = FirstTable_ValueInEmailColumnBy;
+				break;
+			case "Web Site":
+				locator = FirstTable_ValueInWebSiteColumnBy;
 				break;
 		}
 		return driver.FindElements(locator).Select(e => e.Text).ToList();
