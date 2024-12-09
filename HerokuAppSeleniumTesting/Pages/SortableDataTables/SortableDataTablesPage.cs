@@ -26,9 +26,15 @@ public class SortableDataTablesPage : BasePage
 	public IWebElement FirstTable_ValueInWebSiteColumn => driver.FindElement(FirstTable_ValueInWebSiteColumnBy);
 	public By FirstTable_ValueInWebSiteColumnBy = By.XPath("//table[@id='table1']//tbody//tr//td[5]");
 
-	public void ClickTableColumnHeaderInFirstTable(string columnName)
+	public void ClickTableColumnHeaderInTable(string columnName, string table)
 	{
-		driver.FindElement(By.XPath($"//table[@id='table1']//th//span[text()='{columnName}']")).Click();
+		int tableNumber = 1;
+		if (table.ToLower() == "second")
+		{
+			tableNumber = 2;
+		}
+
+		driver.FindElement(By.XPath($"//table[@id='table{tableNumber}']//th//span[text()='{columnName}']")).Click();
 	}
 
 	public List<string> GetAllValuesFromFirstTableInColumn(string columnName)
