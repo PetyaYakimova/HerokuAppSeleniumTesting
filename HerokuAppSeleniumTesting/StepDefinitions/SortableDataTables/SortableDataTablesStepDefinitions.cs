@@ -12,10 +12,10 @@ public class SortableDataTablesStepDefinitions : BaseStepDefinitions
 		this.sortableDataTablesPage = sortableDataTablesPage;
 	}
 
-	[StepDefinition(@"I click the (.*) column header in the first table")]
-	public void ClickTableColumnHeaderInFirstTable(string columnName)
+	[StepDefinition(@"I click the (.*) column header in the (.*) table")]
+	public void ClickTableColumnHeaderInTable(string columnName, string table)
 	{
-		sortableDataTablesPage.ClickTableColumnHeaderInFirstTable(columnName);
+		sortableDataTablesPage.ClickTableColumnHeaderInTable(columnName, table);
 	}
 
 	[Then(@"assert that the first table is ordered by (.*) in (.*) order")]
