@@ -1,6 +1,7 @@
 ﻿using HerokuAppSeleniumTesting.Setup;
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium;
+using TechTalk.SpecFlow;
 
 namespace HerokuAppSeleniumTesting.Pages.SortableDataTables;
 
@@ -11,55 +12,54 @@ public class SortableDataTablesPage : BasePage
 	{
 	}
 
-	public IWebElement FirstTable_ValueInLastNameColumn => driver.FindElement(FirstTable_ValueInLastNameColumnBy);
-	public By FirstTable_ValueInLastNameColumnBy = By.XPath("//table[@id='table1']//tbody//tr//td[1]");
-
-	public IWebElement FirstTable_ValueInFirstNameColumn => driver.FindElement(FirstTable_ValueInFirstNameColumnBy);
-	public By FirstTable_ValueInFirstNameColumnBy = By.XPath("//table[@id='table1']//tbody//tr//td[2]");
-
-	public IWebElement FirstTable_ValueInEmailColumn => driver.FindElement(FirstTable_ValueInEmailColumnBy);
-	public By FirstTable_ValueInEmailColumnBy = By.XPath("//table[@id='table1']//tbody//tr//td[3]");
-
 	public IWebElement FirstTable_ValueInDueColumn => driver.FindElement(FirstTable_ValueInDueColumnBy);
 	public By FirstTable_ValueInDueColumnBy = By.XPath("//table[@id='table1']//tbody//tr//td[4]");
 
-	public IWebElement FirstTable_ValueInWebSiteColumn => driver.FindElement(FirstTable_ValueInWebSiteColumnBy);
-	public By FirstTable_ValueInWebSiteColumnBy = By.XPath("//table[@id='table1']//tbody//tr//td[5]");
 
 	public void ClickTableColumnHeaderInTable(string columnName, string table)
 	{
-		int tableNumber = 1;
-		if (table.ToLower() == "second")
-		{
-			tableNumber = 2;
-		}
+		int tableNumber = GetTableIdFromName(table);
 
 		driver.FindElement(By.XPath($"//table[@id='table{tableNumber}']//th//span[text()='{columnName}']")).Click();
 	}
 
-	public List<string> GetAllValuesFromFirstTableInColumn(string columnName)
+	public List<string> GetAllValuesFromTableInColumn(string table, string columnName)
 	{
-		By? locator = null;
+		int tableNumber = GetTableIdFromName(table);
+		int columnNumber = 0;
+
 		switch (columnName)
 		{
 			case "Last Name":
-				locator = FirstTable_ValueInLastNameColumnBy;
+				columnNumber = 1;
 				break;
 			case "First Name":
-				locator = FirstTable_ValueInFirstNameColumnBy;
+				columnNumber = 2;
 				break;
 			case "Email":
-				locator = FirstTable_ValueInEmailColumnBy;
+				columnNumber = 3;
 				break;
 			case "Web Site":
-				locator = FirstTable_ValueInWebSiteColumnBy;
+				columnNumber = 5;
 				break;
 		}
-		return driver.FindElements(locator).Select(e => e.Text).ToList();
+
+		return driver.FindElements(By.XPath($"//table[@id='table{tableNumber}']//tbody//tr//td[{columnNumber}]")).Select(e => e.Text).ToList();
 	}
 
 	public List<double> GetAmountValuesFromDueColumnInFirstTable()
 	{
 		return driver.FindElements(FirstTable_ValueInDueColumnBy).Select(e => double.Parse(e.Text.Replace("$", string.Empty))).ToList();
+	}
+
+	private int GetTableIdFromName(string name)
+	{
+		int tableNumber = 1;
+		if (name.ToLower() == "second")
+		{
+			tableNumber = 2;
+		}
+
+		return tableNumber;
 	}
 }
