@@ -18,10 +18,10 @@ public class SortableDataTablesStepDefinitions : BaseStepDefinitions
 		sortableDataTablesPage.ClickTableColumnHeaderInTable(columnName, table);
 	}
 
-	[Then(@"assert that the first table is ordered by (.*) in (.*) order")]
-	public void AssertThatTheFirstTableIsOrderedByColumnInOrder(string columnName, string order)
+	[Then(@"assert that the (.*) table is ordered by (.*) in (.*) order")]
+	public void AssertThatTheTableIsOrderedByColumnInOrder(string table, string columnName, string order)
 	{
-		List<string> actualValues = sortableDataTablesPage.GetAllValuesFromFirstTableInColumn(columnName);
+		List<string> actualValues = sortableDataTablesPage.GetAllValuesFromTableInColumn(table, columnName);
 
 		if (order.ToLower() == "descending")
 		{
