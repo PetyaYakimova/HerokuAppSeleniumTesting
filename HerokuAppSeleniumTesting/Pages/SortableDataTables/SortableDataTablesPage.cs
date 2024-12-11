@@ -12,10 +12,6 @@ public class SortableDataTablesPage : BasePage
 	{
 	}
 
-	public IWebElement FirstTable_ValueInDueColumn => driver.FindElement(FirstTable_ValueInDueColumnBy);
-	public By FirstTable_ValueInDueColumnBy = By.XPath("//table[@id='table1']//tbody//tr//td[4]");
-
-
 	public void ClickTableColumnHeaderInTable(string columnName, string table)
 	{
 		int tableNumber = GetTableIdFromName(table);
@@ -47,9 +43,13 @@ public class SortableDataTablesPage : BasePage
 		return driver.FindElements(By.XPath($"//table[@id='table{tableNumber}']//tbody//tr//td[{columnNumber}]")).Select(e => e.Text).ToList();
 	}
 
-	public List<double> GetAmountValuesFromDueColumnInFirstTable()
+	public List<double> GetAmountValuesFromDueColumnInTable(string table)
 	{
-		return driver.FindElements(FirstTable_ValueInDueColumnBy).Select(e => double.Parse(e.Text.Replace("$", string.Empty))).ToList();
+		int tableNumber = GetTableIdFromName(table);
+
+		return driver.FindElements(By.XPath($"//table[@id='table{tableNumber}']//tbody//tr//td[4]"))
+			.Select(e => double.Parse(e.Text.Replace("$", string.Empty)))
+			.ToList();
 	}
 
 	private int GetTableIdFromName(string name)
