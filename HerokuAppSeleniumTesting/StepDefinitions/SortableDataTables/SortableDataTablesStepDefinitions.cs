@@ -34,10 +34,10 @@ public class SortableDataTablesStepDefinitions : BaseStepDefinitions
 		}
 	}
 
-	[Then(@"assert that the first table is ordered numerically by Due column in (.*) order")]
-	public void AssertThatTheFirstTableIsOrderedNumericallyByDueColumnInOrder(string order)
+	[Then(@"assert that the (.*) table is ordered numerically by Due column in (.*) order")]
+	public void AssertThatTheTableIsOrderedNumericallyByDueColumnInOrder(string table, string order)
 	{
-		List<double> actualValues = sortableDataTablesPage.GetAmountValuesFromDueColumnInFirstTable();
+		List<double> actualValues = sortableDataTablesPage.GetAmountValuesFromDueColumnInTable(table);
 
 		if (order.ToLower() == "descending")
 		{
