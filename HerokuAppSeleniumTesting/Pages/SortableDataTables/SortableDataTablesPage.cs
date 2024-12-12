@@ -52,6 +52,14 @@ public class SortableDataTablesPage : BasePage
 			.ToList();
 	}
 
+	public string GetClassesFromTableHeader(string columnName, string table)
+	{
+		int tableNumber = GetTableIdFromName(table);
+
+		return driver.FindElement(By.XPath($"//table[@id='table{tableNumber}']//span[text()='{columnName}']/.."))
+			.GetAttribute("className");
+	}
+
 	private int GetTableIdFromName(string name)
 	{
 		int tableNumber = 1;
