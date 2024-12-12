@@ -49,4 +49,12 @@ public class SortableDataTablesStepDefinitions : BaseStepDefinitions
 			Assert.That(actualValues[i] <= actualValues[i + 1]);
 		}
 	}
+
+	[Then(@"assert that the (.*) column header in the (.*) table has (.*) class")]
+	public void AssertThatColumnHeaderInTableHasClass(string columnName, string table, string expectedClass)
+	{
+		string actualClass = sortableDataTablesPage.GetClassesFromTableHeader(columnName, table);
+
+		Assert.That(actualClass.Contains(expectedClass));
+	}
 }
