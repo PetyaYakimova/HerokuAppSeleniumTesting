@@ -34,7 +34,12 @@ Scenario: Second table can be ordered by each column
 	When I click the Last Name column header in the second table
 	Then assert that the second table is ordered by Last Name in descending order
 	And assert that the Last Name column header in the second table has headerSortUp class
-	#Given I open the tables page
+	When I click the First Name column header in the second table
+	Then assert that the second table is ordered by First Name in ascending order
+	And assert that the First Name column header in the second table has headerSortDown class
+	When I click the First Name column header in the second table
+	Then assert that the second table is ordered by First Name in descending order
+	And assert that the First Name column header in the second table has headerSortUp class
 	#When I click the First Name column header in the first table
 	#Then assert that the first table is ordered by First Name in ascending order
 	#When I click the First Name column header in the first table
