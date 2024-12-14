@@ -46,10 +46,12 @@ Scenario: Second table can be ordered by each column
 	When I click the Email column header in the second table
 	Then assert that the second table is ordered by Email in descending order
 	And assert that the Email column header in the second table has headerSortUp class
-	#When I click the Due column header in the first table
-	#Then assert that the first table is ordered numerically by Due column in ascending order
-	#When I click the Due column header in the first table
-	#Then assert that the first table is ordered numerically by Due column in descending order
+	When I click the Due column header in the second table
+	Then assert that the second table is ordered numerically by Due column in ascending order
+	And assert that the Due column header in the second table has headerSortDown class
+	When I click the Due column header in the second table
+	Then assert that the second table is ordered numerically by Due column in descending order
+	And assert that the Due column header in the second table has headerSortUp class
 	#When I click the Web Site column header in the first table
 	#Then assert that the first table is ordered by Web Site in ascending order
 	#When I click the Web Site column header in the first table
