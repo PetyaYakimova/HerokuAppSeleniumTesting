@@ -1,7 +1,6 @@
 ﻿using HerokuAppSeleniumTesting.Setup;
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium;
-using TechTalk.SpecFlow;
 
 namespace HerokuAppSeleniumTesting.Pages.SortableDataTables;
 
