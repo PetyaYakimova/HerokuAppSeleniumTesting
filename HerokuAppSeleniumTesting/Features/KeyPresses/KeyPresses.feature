@@ -1,9 +1,7 @@
 ﻿Feature: KeyPresses
+Verifying key presses page functionalities.
 
-A short summary of the feature
-
-@tag1
-Scenario: [scenario name]
-	Given [context]
-	When [action]
-	Then [outcome]
+@positive
+Scenario: Sent keys to the page are displayed correctly
+	Given I open the key presses page
+	When I send l key to the page
