@@ -17,4 +17,12 @@ public class KeyPressesStepDefinitions : BaseStepDefinitions
 	{
 		keyPressesPage.SendKeyToThePage(key);
 	}
+
+	[Then(@"assert that the result says that I have entered (.*)")]
+	public void AssertThatTheResultSaysThatIHaveEnteredKey(string expectedKey)
+	{
+		string actualResult = keyPressesPage.GetValueFromResultText();
+
+		Assert.That(actualResult, Is.EqualTo(expectedKey));
+	}
 }
