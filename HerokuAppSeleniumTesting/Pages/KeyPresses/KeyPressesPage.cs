@@ -19,8 +19,26 @@ public class KeyPressesPage : BasePage
 
 	public void SendKeyToThePage(string key)
 	{
+		string keysToSend = key;
+
+		switch (key.ToLower())
+		{
+			case "shift":
+				keysToSend = Keys.Shift;
+				break;
+			case "enter":
+				keysToSend = Keys.Enter;
+				break;
+			case "delete":
+				keysToSend = Keys.Delete;
+				break;
+			case "tab":
+				keysToSend = Keys.Tab;
+				break;
+		}
+
 		Actions actions = new Actions(driver);
-		actions.SendKeys(key).Perform();
+		actions.SendKeys(keysToSend).Perform();
 	}
 
 	public string GetValueFromResultText()
