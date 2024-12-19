@@ -8,3 +8,9 @@ Scenario: Sent keys to the page are displayed correctly
 	Then assert that the result says that I have entered L
 	When I send SHIFT key to the page
 	Then assert that the result says that I have entered SHIFT
+	When I send ENTER key to the page
+	Then assert that the result says that I have entered ENTER
+	When I send DELETE key to the page
+	Then assert that the result says that I have entered DELETE
+	When I send TAB key to the page
+	Then assert that the result says that I have entered TAB
