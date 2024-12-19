@@ -14,3 +14,7 @@ Scenario: Sent keys to the page are displayed correctly
 	Then assert that the result says that I have entered DELETE
 	When I send TAB key to the page
 	Then assert that the result says that I have entered TAB
+	When I send 8 key to the page
+	Then assert that the result says that I have entered 8
+	When I send 2 key to the page
+	Then assert that the result says that I have entered 2
