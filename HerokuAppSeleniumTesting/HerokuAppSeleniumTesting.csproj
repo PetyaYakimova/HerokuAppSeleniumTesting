@@ -45,6 +45,7 @@
 		<Folder Include="Features\DigestAuthentications\" />
 		<Folder Include="Features\DragAndDrop\" />
 		<Folder Include="Features\KeyPresses\" />
+		<Folder Include="Features\MultipleWindows\" />
 		<Folder Include="Features\SortableDataTables\" />
 	</ItemGroup>
 
