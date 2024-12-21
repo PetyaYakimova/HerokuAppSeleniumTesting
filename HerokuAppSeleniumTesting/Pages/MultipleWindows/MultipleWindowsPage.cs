@@ -10,4 +10,12 @@ public class MultipleWindowsPage : BasePage
 	: base(settings, driver, wait)
 	{
 	}
+
+	public IWebElement ClickHereButton => driver.FindElement(ClickHereButtonBy);
+	public By ClickHereButtonBy = By.XPath("//a[@target='_blank']");
+
+	public void PressClickHereButton()
+	{
+		ClickHereButton.Click();
+	}
 }
