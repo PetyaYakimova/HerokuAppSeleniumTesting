@@ -18,4 +18,9 @@ public class MultipleWindowsPage : BasePage
 	{
 		ClickHereButton.Click();
 	}
+
+	public void SwitchToLastTab()
+	{
+		driver.WindowHandles.Last();
+	}
 }
