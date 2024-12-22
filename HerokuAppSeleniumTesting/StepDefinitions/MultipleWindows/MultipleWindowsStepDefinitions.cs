@@ -17,4 +17,10 @@ public class MultipleWindowsStepDefinitions : BaseStepDefinitions
 	{
 		multipleWindowsPage.PressClickHereButton();
 	}
+
+	[StepDefinition(@"I switch to the last tab")]
+	public void ISwitchToTheLastTab()
+	{
+		multipleWindowsPage.SwitchToLastTab();
+	}
 }
