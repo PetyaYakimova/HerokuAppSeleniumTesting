@@ -21,6 +21,6 @@ public class MultipleWindowsPage : BasePage
 
 	public void SwitchToLastTab()
 	{
-		driver.WindowHandles.Last();
+		driver.SwitchTo().Window(driver.WindowHandles.Last());
 	}
 }
