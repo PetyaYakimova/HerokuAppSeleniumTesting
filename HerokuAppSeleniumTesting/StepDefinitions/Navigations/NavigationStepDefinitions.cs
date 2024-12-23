@@ -23,4 +23,10 @@ public class NavigationStepDefinitions : BaseStepDefinitions
 	{
 		Assert.IsTrue(basePage.GetCurrentURL().EndsWith(action));
 	}
+
+	[Then(@"assert that I am on (.*) page")]
+	public void AssertThatIAmOnPage(string page)
+	{
+		Assert.IsTrue(basePage.GetCurrentURL().EndsWith(page));
+	}
 }
