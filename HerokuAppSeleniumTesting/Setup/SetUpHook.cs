@@ -25,8 +25,7 @@ public class SetUpHook
 	[BeforeScenario]
 	public void Setup(IObjectContainer objectContainer, ScenarioContext scenarioContext)
 	{
-		IWebDriver driver = this.GetDriver("chrome");
-		//IWebDriver driver = this.GetDriver("firefox");
+		IWebDriver driver = this.GetDriver();
 
 		driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(10);
 		driver.Manage().Window.Maximize();
@@ -55,8 +54,10 @@ public class SetUpHook
 		return builder.Build();
 	}
 
-	private IWebDriver GetDriver(string browserName)
+	private IWebDriver GetDriver()
 	{
+		string browserName = Environment.GetEnvironmentVariable("browser") ?? "chrome";
+
 		switch (browserName.ToLower())
 		{
 			case "chrome":
